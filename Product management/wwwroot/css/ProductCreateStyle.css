@@ -1,0 +1,10 @@
+﻿.Product {
+    box-shadow: 10px 10px 5px grey;
+    background-color: cornflowerblue;
+}
+label{
+    font-weight:bold;
+}
+input{
+    margin-bottom: 7px;
+}

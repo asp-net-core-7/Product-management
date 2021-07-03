@@ -1,0 +1,12 @@
+﻿.Order {
+    box-shadow: 10px 10px 5px grey;
+    background-color: cornflowerblue;
+    margin-bottom: 7px;
+}
+.Product {
+    background-color: darkturquoise;
+}
+.Card {
+    box-shadow: 10px 10px 5px grey;
+    background-color: cornflowerblue;
+}

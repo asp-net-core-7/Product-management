@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Make Order";
+}
+
+<link rel="stylesheet" href="~/css/ProductCreateStyle.css" />
+<div class="container px-5 py-5 Product">
+
+    <form method="post" asp-area="" asp-controller="Product" asp-action="AddProduct" autocomplete="off">
+        <div class="row">
+            <div class="col">
+                <h3>Create Product</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <div class="row">
+                    <div class="col">
+                        <label>Product Number</label>
+                        <input type="number" class="form-control" name="ProductNo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>Product Name</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>Product Price</label>
+                        <input type="text" class="form-control" name="Price">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>Product Type</label>
+                        <input type="text" class="form-control" name="Type">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="~/js/JavaScript.js" type="text/javascript"></script>
+</div>
+</html>
