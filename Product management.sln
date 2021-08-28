@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product management", "Product management\Product management.csproj", "{509DAFFD-C58A-4850-930B-9824AB628924}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Product management.App", "Product management\Product management.App.csproj", "{509DAFFD-C58A-4850-930B-9824AB628924}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Product Management.Repositories.Abstractions", "Product Management.Repositories.Abstractions\Product Management.Repositories.Abstractions.csproj", "{3BBAF9FD-F335-4364-B3FA-649ADB897CBA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Product Management.Repositories", "Product Management.Repositories\Product Management.Repositories.csproj", "{6488026D-E0B1-4735-9EBC-B6E3CC539DFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product Management.Models", "Product management.Models\Product Management.Models.csproj", "{09F6D8A4-7DEF-4AB1-98EB-ACB9CD93801F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product Management.Database", "Product Management.Database\Product Management.Database.csproj", "{E2ACBDEC-F750-406C-BDF5-FFCB7369A6F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{509DAFFD-C58A-4850-930B-9824AB628924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{509DAFFD-C58A-4850-930B-9824AB628924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{509DAFFD-C58A-4850-930B-9824AB628924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BBAF9FD-F335-4364-B3FA-649ADB897CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BBAF9FD-F335-4364-B3FA-649ADB897CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BBAF9FD-F335-4364-B3FA-649ADB897CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BBAF9FD-F335-4364-B3FA-649ADB897CBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6488026D-E0B1-4735-9EBC-B6E3CC539DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6488026D-E0B1-4735-9EBC-B6E3CC539DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6488026D-E0B1-4735-9EBC-B6E3CC539DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6488026D-E0B1-4735-9EBC-B6E3CC539DFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F6D8A4-7DEF-4AB1-98EB-ACB9CD93801F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F6D8A4-7DEF-4AB1-98EB-ACB9CD93801F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F6D8A4-7DEF-4AB1-98EB-ACB9CD93801F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F6D8A4-7DEF-4AB1-98EB-ACB9CD93801F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2ACBDEC-F750-406C-BDF5-FFCB7369A6F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2ACBDEC-F750-406C-BDF5-FFCB7369A6F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2ACBDEC-F750-406C-BDF5-FFCB7369A6F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2ACBDEC-F750-406C-BDF5-FFCB7369A6F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

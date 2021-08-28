@@ -1,58 +1,46 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Product_management.Database;
-using Product_management.Models;
+using Microsoft.EntityFrameworkCore;
+using Product_Management.Database;
+using Product_Management.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Product_Management.Repositories;
+using Product_Management.Repositories.Abstractions;
 
-namespace Product_management.Controllers
+namespace Product_Management.Controllers
 {
     public class OrderController : Controller
     {
-        PMDBContext _dbContext;
-        public OrderController()
+        public IOrderRepositories _orderRepositories { get; set; }
+        public IProductRepositories _productRepositories { get; set; }
+        public OrderController(IOrderRepositories orderRepositories,IProductRepositories productRepositories)
         {
-             _dbContext = new PMDBContext();
+            _orderRepositories = orderRepositories;
+            _productRepositories = productRepositories;
         }
         public IActionResult Index()
         {
-            var productList = _dbContext.products.Select(p => p);
-            
+            ICollection<Product> productList = _productRepositories.GetAllProduct();
+
             return View(productList);
         }
-        public IActionResult Details(Order order)
+        public bool AddOrder(Order order)
         {
-            _dbContext.orders.Add(order);
-            int successCount = _dbContext.SaveChanges();
-            if (successCount > 0)
-            {
-                //var prd = _dbContext.orders.Where(p => p.OrderNo == order.Id);
-                return View(order);
-            }
-            else
-            {
-                return View();
-            }
+            bool successCount = _orderRepositories.AddOrder(order);
+            return successCount;
         }
-        public IActionResult AllOrders()
+        public IActionResult GetAllOrders()
         {
-            var prd = _dbContext.orders.Select(p => p);
-            return View(prd);
+            ICollection<Order> orderList = _orderRepositories.GetAllOrders();
+            return View(orderList);
         }
-        public IActionResult DeleteOrder(int id)
+        public bool DeleteOrder(int id)
         {
-            var ord = _dbContext.orders.Where(p => p.Id == id).FirstOrDefault();
-            _dbContext.orders.Remove(ord);
-            int successCount = _dbContext.SaveChanges();
-            if (successCount > 0)
-            {
-                var order = _dbContext.orders.Select(p => p);
-                return View("AllOrders", order);
-            }
-
-            return View(ord);
+            bool successCount = _orderRepositories.DeleteOrder(id);
+            return successCount;
         }
 
     }

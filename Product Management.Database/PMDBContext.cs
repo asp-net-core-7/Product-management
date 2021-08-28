@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Product_management.Models;
+using Product_Management.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Product_management.Database
+namespace Product_Management.Database
 {
     public class PMDBContext:DbContext
     {

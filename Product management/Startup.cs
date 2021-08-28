@@ -1,15 +1,19 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Product_Management.Database;
+using Product_Management.Repositories;
+using Product_Management.Repositories.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Product_management
+namespace Product_Management
 {
     public class Startup
     {
@@ -24,6 +28,10 @@ namespace Product_management
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddTransient<IOrderRepositories, OrderRepositories>();
+            services.AddTransient<IProductRepositories, ProductRepositories>();
+            services.AddTransient<DbContext, PMDBContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

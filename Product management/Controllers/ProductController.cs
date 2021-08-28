@@ -1,19 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Product_management.Database;
-using Product_management.Models;
+using Product_Management.Database;
+using Product_Management.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Product_Management.Repositories;
+using Product_Management.Repositories.Abstractions;
 
-namespace Product_management.Controllers
+namespace Product_Management.Controllers
 {
     public class ProductController : Controller
     {
-        PMDBContext _dbContext;
-        public ProductController()
+        public IProductRepositories _productRepositories;    
+        public ProductController(IProductRepositories productRepositories)
         {
-            _dbContext = new PMDBContext();
+            _productRepositories = productRepositories;
         }
         public IActionResult Createproduct()
         {
@@ -22,36 +24,24 @@ namespace Product_management.Controllers
         [HttpPost]
         public IActionResult AddProduct(Product product)
         {
-            _dbContext.products.Add(product);
+            bool successCount =_productRepositories.AddProduct(product);
+            return Json(successCount);
+        }
+        public IActionResult GetAllProductJson()
+        {
+            ICollection<Product> products =  _productRepositories.GetAllProduct();
+            return Json(products);
+        }
+        public IActionResult GetAllProduct()
+        {
+            ICollection<Product> products = _productRepositories.GetAllProduct();
+            return View("Details",products);
+        }
 
-            int successCount = _dbContext.SaveChanges();
-            if (successCount > 0)
-            {
-                return RedirectToAction("Details");
-            }
-            else
-            {
-                return View();
-            }
-            
-        }
-        public IActionResult Details()
+        public bool DeleteProduct(int id)
         {
-            var product = _dbContext.products.Select(p => p);
-            return View(product);
-        }
-        public IActionResult DeleteProduct(int id)
-        {
-            var prd = _dbContext.products.Where(p => p.Id==id).FirstOrDefault();
-            _dbContext.products.Remove(prd);
-            int successCount = _dbContext.SaveChanges();
-            if(successCount>0)
-            {
-                var product = _dbContext.products.Select(p => p);
-                return View("Details",product);
-            }
-            
-            return View(prd);
+            bool successCount = _productRepositories.DeleteProduct(id);
+            return successCount;
         }
     }
 }

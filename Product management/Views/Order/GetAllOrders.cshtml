@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Order>
+﻿@model ICollection<Order>
+
 
 <table class="table table-light table-borderless table-striped">
     <thead>
@@ -6,21 +7,27 @@
             <th style="text-align: center; border-right: 1px solid #c8d6e5;">Order No</th>
             <th style="text-align: center; border-right: 1px solid #c8d6e5;">Date</th>
             <th style="text-align: center; border-right: 1px solid #c8d6e5;">OrderBy</th>
-            <th style="text-align: center;">Description</th>
+            <th style="text-align: center; border-right: 1px solid #c8d6e5;">Description</th>
+            <th style="text-align: center; border-right: 1px solid #c8d6e5;">Customer Name</th>
+            <th style="text-align: center;">Customer Phone</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var data in Model)
-        {
-        <tr>
+        @foreach(var data in Model)
+         {
+            <tr>
             <td>@data.OrderNo</td>
             <td>@data.Date</td>
             <td>@data.OrderedBy</td>
             <td>@data.Description</td>
+            <td>@data.customer.Name</td>
+            <td>@data.customer.Phone</td>
             <td><a class="btn btn-danger" asp-controller="Order" asp-action="DeleteOrder" asp-route-id="@data.Id">Delete</a></td>
+            </tr>
+         }
+        
 
-        </tr>
-        }
 
     </tbody>
 </table>
+

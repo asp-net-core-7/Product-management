@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Product_management</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Product management.Models\Product Management.Models.csproj" />
+    <ProjectReference Include="..\Product Management.Repositories.Abstractions\Product Management.Repositories.Abstractions.csproj" />
+    <ProjectReference Include="..\Product Management.Repositories\Product Management.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

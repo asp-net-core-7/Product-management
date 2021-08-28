@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Product_management.Database;
+using Product_Management.Database;
 
-namespace Product_management.Migrations
+namespace Product_Management.Migrations
 {
     [DbContext(typeof(PMDBContext))]
-    partial class PMDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210702181315_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
